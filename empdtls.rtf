@@ -1,0 +1,487 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf500
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\csgray\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh15380\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf2 \CocoaLigature0 // ORM class for table 'empdtls'\
+// WARNING: This class is AUTO-GENERATED. Modify at your own risk.\
+//\
+// Debug information:\
+// Generated date: Fri Jul 19 11:23:01 PDT 2019\
+// For connector: org.apache.sqoop.manager.MySQLManager\
+import org.apache.hadoop.io.BytesWritable;\
+import org.apache.hadoop.io.Text;\
+import org.apache.hadoop.io.Writable;\
+import org.apache.hadoop.mapred.lib.db.DBWritable;\
+import com.cloudera.sqoop.lib.JdbcWritableBridge;\
+import com.cloudera.sqoop.lib.DelimiterSet;\
+import com.cloudera.sqoop.lib.FieldFormatter;\
+import com.cloudera.sqoop.lib.RecordParser;\
+import com.cloudera.sqoop.lib.BooleanParser;\
+import com.cloudera.sqoop.lib.BlobRef;\
+import com.cloudera.sqoop.lib.ClobRef;\
+import com.cloudera.sqoop.lib.LargeObjectLoader;\
+import com.cloudera.sqoop.lib.SqoopRecord;\
+import java.sql.PreparedStatement;\
+import java.sql.ResultSet;\
+import java.sql.SQLException;\
+import java.io.DataInput;\
+import java.io.DataOutput;\
+import java.io.IOException;\
+import java.nio.ByteBuffer;\
+import java.nio.CharBuffer;\
+import java.sql.Date;\
+import java.sql.Time;\
+import java.sql.Timestamp;\
+import java.util.Arrays;\
+import java.util.Iterator;\
+import java.util.List;\
+import java.util.Map;\
+import java.util.HashMap;\
+\
+public class empdtls extends SqoopRecord  implements DBWritable, Writable \{\
+  private final int PROTOCOL_VERSION = 3;\
+  public int getClassFormatVersion() \{ return PROTOCOL_VERSION; \}\
+  public static interface FieldSetterCommand \{    void setField(Object value);  \}  protected ResultSet __cur_result_set;\
+  private Map<String, FieldSetterCommand> setters = new HashMap<String, FieldSetterCommand>();\
+  private void init0() \{\
+    setters.put("empname", new FieldSetterCommand() \{\
+      @Override\
+      public void setField(Object value) \{\
+        empname = (String)value;\
+      \}\
+    \});\
+    setters.put("empno", new FieldSetterCommand() \{\
+      @Override\
+      public void setField(Object value) \{\
+        empno = (Integer)value;\
+      \}\
+    \});\
+    setters.put("sal", new FieldSetterCommand() \{\
+      @Override\
+      public void setField(Object value) \{\
+        sal = (Integer)value;\
+      \}\
+    \});\
+    setters.put("loc", new FieldSetterCommand() \{\
+      @Override\
+      public void setField(Object value) \{\
+        loc = (String)value;\
+      \}\
+    \});\
+    setters.put("dept", new FieldSetterCommand() \{\
+      @Override\
+      public void setField(Object value) \{\
+        dept = (String)value;\
+      \}\
+    \});\
+  \}\
+  public empdtls() \{\
+    init0();\
+  \}\
+  private String empname;\
+  public String get_empname() \{\
+    return empname;\
+  \}\
+  public void set_empname(String empname) \{\
+    this.empname = empname;\
+  \}\
+  public empdtls with_empname(String empname) \{\
+    this.empname = empname;\
+    return this;\
+  \}\
+  private Integer empno;\
+  public Integer get_empno() \{\
+    return empno;\
+  \}\
+  public void set_empno(Integer empno) \{\
+    this.empno = empno;\
+  \}\
+  public empdtls with_empno(Integer empno) \{\
+    this.empno = empno;\
+    return this;\
+  \}\
+  private Integer sal;\
+  public Integer get_sal() \{\
+    return sal;\
+  \}\
+  public void set_sal(Integer sal) \{\
+    this.sal = sal;\
+  \}\
+  public empdtls with_sal(Integer sal) \{\
+    this.sal = sal;\
+    return this;\
+  \}\
+  private String loc;\
+  public String get_loc() \{\
+    return loc;\
+  \}\
+  public void set_loc(String loc) \{\
+    this.loc = loc;\
+  \}\
+  public empdtls with_loc(String loc) \{\
+    this.loc = loc;\
+    return this;\
+  \}\
+  private String dept;\
+  public String get_dept() \{\
+    return dept;\
+  \}\
+  public void set_dept(String dept) \{\
+    this.dept = dept;\
+  \}\
+  public empdtls with_dept(String dept) \{\
+    this.dept = dept;\
+    return this;\
+  \}\
+  public boolean equals(Object o) \{\
+    if (this == o) \{\
+      return true;\
+    \}\
+    if (!(o instanceof empdtls)) \{\
+      return false;\
+    \}\
+    empdtls that = (empdtls) o;\
+    boolean equal = true;\
+    equal = equal && (this.empname == null ? that.empname == null : this.empname.equals(that.empname));\
+    equal = equal && (this.empno == null ? that.empno == null : this.empno.equals(that.empno));\
+    equal = equal && (this.sal == null ? that.sal == null : this.sal.equals(that.sal));\
+    equal = equal && (this.loc == null ? that.loc == null : this.loc.equals(that.loc));\
+    equal = equal && (this.dept == null ? that.dept == null : this.dept.equals(that.dept));\
+    return equal;\
+  \}\
+  public boolean equals0(Object o) \{\
+    if (this == o) \{\
+      return true;\
+    \}\
+    if (!(o instanceof empdtls)) \{\
+      return false;\
+    \}\
+    empdtls that = (empdtls) o;\
+    boolean equal = true;\
+    equal = equal && (this.empname == null ? that.empname == null : this.empname.equals(that.empname));\
+    equal = equal && (this.empno == null ? that.empno == null : this.empno.equals(that.empno));\
+    equal = equal && (this.sal == null ? that.sal == null : this.sal.equals(that.sal));\
+    equal = equal && (this.loc == null ? that.loc == null : this.loc.equals(that.loc));\
+    equal = equal && (this.dept == null ? that.dept == null : this.dept.equals(that.dept));\
+    return equal;\
+  \}\
+  public void readFields(ResultSet __dbResults) throws SQLException \{\
+    this.__cur_result_set = __dbResults;\
+    this.empname = JdbcWritableBridge.readString(1, __dbResults);\
+    this.empno = JdbcWritableBridge.readInteger(2, __dbResults);\
+    this.sal = JdbcWritableBridge.readInteger(3, __dbResults);\
+    this.loc = JdbcWritableBridge.readString(4, __dbResults);\
+    this.dept = JdbcWritableBridge.readString(5, __dbResults);\
+  \}\
+  public void readFields0(ResultSet __dbResults) throws SQLException \{\
+    this.empname = JdbcWritableBridge.readString(1, __dbResults);\
+    this.empno = JdbcWritableBridge.readInteger(2, __dbResults);\
+    this.sal = JdbcWritableBridge.readInteger(3, __dbResults);\
+    this.loc = JdbcWritableBridge.readString(4, __dbResults);\
+    this.dept = JdbcWritableBridge.readString(5, __dbResults);\
+  \}\
+  public void loadLargeObjects(LargeObjectLoader __loader)\
+      throws SQLException, IOException, InterruptedException \{\
+  \}\
+  public void loadLargeObjects0(LargeObjectLoader __loader)\
+      throws SQLException, IOException, InterruptedException \{\
+  \}\
+  public void write(PreparedStatement __dbStmt) throws SQLException \{\
+    write(__dbStmt, 0);\
+  \}\
+\
+  public int write(PreparedStatement __dbStmt, int __off) throws SQLException \{\
+    JdbcWritableBridge.writeString(empname, 1 + __off, 12, __dbStmt);\
+    JdbcWritableBridge.writeInteger(empno, 2 + __off, 4, __dbStmt);\
+    JdbcWritableBridge.writeInteger(sal, 3 + __off, 4, __dbStmt);\
+    JdbcWritableBridge.writeString(loc, 4 + __off, 12, __dbStmt);\
+    JdbcWritableBridge.writeString(dept, 5 + __off, 12, __dbStmt);\
+    return 5;\
+  \}\
+  public void write0(PreparedStatement __dbStmt, int __off) throws SQLException \{\
+    JdbcWritableBridge.writeString(empname, 1 + __off, 12, __dbStmt);\
+    JdbcWritableBridge.writeInteger(empno, 2 + __off, 4, __dbStmt);\
+    JdbcWritableBridge.writeInteger(sal, 3 + __off, 4, __dbStmt);\
+    JdbcWritableBridge.writeString(loc, 4 + __off, 12, __dbStmt);\
+    JdbcWritableBridge.writeString(dept, 5 + __off, 12, __dbStmt);\
+  \}\
+  public void readFields(DataInput __dataIn) throws IOException \{\
+this.readFields0(__dataIn);  \}\
+  public void readFields0(DataInput __dataIn) throws IOException \{\
+    if (__dataIn.readBoolean()) \{ \
+        this.empname = null;\
+    \} else \{\
+    this.empname = Text.readString(__dataIn);\
+    \}\
+    if (__dataIn.readBoolean()) \{ \
+        this.empno = null;\
+    \} else \{\
+    this.empno = Integer.valueOf(__dataIn.readInt());\
+    \}\
+    if (__dataIn.readBoolean()) \{ \
+        this.sal = null;\
+    \} else \{\
+    this.sal = Integer.valueOf(__dataIn.readInt());\
+    \}\
+    if (__dataIn.readBoolean()) \{ \
+        this.loc = null;\
+    \} else \{\
+    this.loc = Text.readString(__dataIn);\
+    \}\
+    if (__dataIn.readBoolean()) \{ \
+        this.dept = null;\
+    \} else \{\
+    this.dept = Text.readString(__dataIn);\
+    \}\
+  \}\
+  public void write(DataOutput __dataOut) throws IOException \{\
+    if (null == this.empname) \{ \
+        __dataOut.writeBoolean(true);\
+    \} else \{\
+        __dataOut.writeBoolean(false);\
+    Text.writeString(__dataOut, empname);\
+    \}\
+    if (null == this.empno) \{ \
+        __dataOut.writeBoolean(true);\
+    \} else \{\
+        __dataOut.writeBoolean(false);\
+    __dataOut.writeInt(this.empno);\
+    \}\
+    if (null == this.sal) \{ \
+        __dataOut.writeBoolean(true);\
+    \} else \{\
+        __dataOut.writeBoolean(false);\
+    __dataOut.writeInt(this.sal);\
+    \}\
+    if (null == this.loc) \{ \
+        __dataOut.writeBoolean(true);\
+    \} else \{\
+        __dataOut.writeBoolean(false);\
+    Text.writeString(__dataOut, loc);\
+    \}\
+    if (null == this.dept) \{ \
+        __dataOut.writeBoolean(true);\
+    \} else \{\
+        __dataOut.writeBoolean(false);\
+    Text.writeString(__dataOut, dept);\
+    \}\
+  \}\
+  public void write0(DataOutput __dataOut) throws IOException \{\
+    if (null == this.empname) \{ \
+        __dataOut.writeBoolean(true);\
+    \} else \{\
+        __dataOut.writeBoolean(false);\
+    Text.writeString(__dataOut, empname);\
+    \}\
+    if (null == this.empno) \{ \
+        __dataOut.writeBoolean(true);\
+    \} else \{\
+        __dataOut.writeBoolean(false);\
+    __dataOut.writeInt(this.empno);\
+    \}\
+    if (null == this.sal) \{ \
+        __dataOut.writeBoolean(true);\
+    \} else \{\
+        __dataOut.writeBoolean(false);\
+    __dataOut.writeInt(this.sal);\
+    \}\
+    if (null == this.loc) \{ \
+        __dataOut.writeBoolean(true);\
+    \} else \{\
+        __dataOut.writeBoolean(false);\
+    Text.writeString(__dataOut, loc);\
+    \}\
+    if (null == this.dept) \{ \
+        __dataOut.writeBoolean(true);\
+    \} else \{\
+        __dataOut.writeBoolean(false);\
+    Text.writeString(__dataOut, dept);\
+    \}\
+  \}\
+  private static final DelimiterSet __outputDelimiters = new DelimiterSet((char) 44, (char) 10, (char) 0, (char) 0, false);\
+  public String toString() \{\
+    return toString(__outputDelimiters, true);\
+  \}\
+  public String toString(DelimiterSet delimiters) \{\
+    return toString(delimiters, true);\
+  \}\
+  public String toString(boolean useRecordDelim) \{\
+    return toString(__outputDelimiters, useRecordDelim);\
+  \}\
+  public String toString(DelimiterSet delimiters, boolean useRecordDelim) \{\
+    StringBuilder __sb = new StringBuilder();\
+    char fieldDelim = delimiters.getFieldsTerminatedBy();\
+    __sb.append(FieldFormatter.escapeAndEnclose(empname==null?"null":empname, delimiters));\
+    __sb.append(fieldDelim);\
+    __sb.append(FieldFormatter.escapeAndEnclose(empno==null?"null":"" + empno, delimiters));\
+    __sb.append(fieldDelim);\
+    __sb.append(FieldFormatter.escapeAndEnclose(sal==null?"null":"" + sal, delimiters));\
+    __sb.append(fieldDelim);\
+    __sb.append(FieldFormatter.escapeAndEnclose(loc==null?"null":loc, delimiters));\
+    __sb.append(fieldDelim);\
+    __sb.append(FieldFormatter.escapeAndEnclose(dept==null?"null":dept, delimiters));\
+    if (useRecordDelim) \{\
+      __sb.append(delimiters.getLinesTerminatedBy());\
+    \}\
+    return __sb.toString();\
+  \}\
+  public void toString0(DelimiterSet delimiters, StringBuilder __sb, char fieldDelim) \{\
+    __sb.append(FieldFormatter.escapeAndEnclose(empname==null?"null":empname, delimiters));\
+    __sb.append(fieldDelim);\
+    __sb.append(FieldFormatter.escapeAndEnclose(empno==null?"null":"" + empno, delimiters));\
+    __sb.append(fieldDelim);\
+    __sb.append(FieldFormatter.escapeAndEnclose(sal==null?"null":"" + sal, delimiters));\
+    __sb.append(fieldDelim);\
+    __sb.append(FieldFormatter.escapeAndEnclose(loc==null?"null":loc, delimiters));\
+    __sb.append(fieldDelim);\
+    __sb.append(FieldFormatter.escapeAndEnclose(dept==null?"null":dept, delimiters));\
+  \}\
+  private static final DelimiterSet __inputDelimiters = new DelimiterSet((char) 44, (char) 10, (char) 0, (char) 0, false);\
+  private RecordParser __parser;\
+  public void parse(Text __record) throws RecordParser.ParseError \{\
+    if (null == this.__parser) \{\
+      this.__parser = new RecordParser(__inputDelimiters);\
+    \}\
+    List<String> __fields = this.__parser.parseRecord(__record);\
+    __loadFromFields(__fields);\
+  \}\
+\
+  public void parse(CharSequence __record) throws RecordParser.ParseError \{\
+    if (null == this.__parser) \{\
+      this.__parser = new RecordParser(__inputDelimiters);\
+    \}\
+    List<String> __fields = this.__parser.parseRecord(__record);\
+    __loadFromFields(__fields);\
+  \}\
+\
+  public void parse(byte [] __record) throws RecordParser.ParseError \{\
+    if (null == this.__parser) \{\
+      this.__parser = new RecordParser(__inputDelimiters);\
+    \}\
+    List<String> __fields = this.__parser.parseRecord(__record);\
+    __loadFromFields(__fields);\
+  \}\
+\
+  public void parse(char [] __record) throws RecordParser.ParseError \{\
+    if (null == this.__parser) \{\
+      this.__parser = new RecordParser(__inputDelimiters);\
+    \}\
+    List<String> __fields = this.__parser.parseRecord(__record);\
+    __loadFromFields(__fields);\
+  \}\
+\
+  public void parse(ByteBuffer __record) throws RecordParser.ParseError \{\
+    if (null == this.__parser) \{\
+      this.__parser = new RecordParser(__inputDelimiters);\
+    \}\
+    List<String> __fields = this.__parser.parseRecord(__record);\
+    __loadFromFields(__fields);\
+  \}\
+\
+  public void parse(CharBuffer __record) throws RecordParser.ParseError \{\
+    if (null == this.__parser) \{\
+      this.__parser = new RecordParser(__inputDelimiters);\
+    \}\
+    List<String> __fields = this.__parser.parseRecord(__record);\
+    __loadFromFields(__fields);\
+  \}\
+\
+  private void __loadFromFields(List<String> fields) \{\
+    Iterator<String> __it = fields.listIterator();\
+    String __cur_str = null;\
+    try \{\
+    __cur_str = __it.next();\
+    if (__cur_str.equals("null")) \{ this.empname = null; \} else \{\
+      this.empname = __cur_str;\
+    \}\
+\
+    __cur_str = __it.next();\
+    if (__cur_str.equals("null") || __cur_str.length() == 0) \{ this.empno = null; \} else \{\
+      this.empno = Integer.valueOf(__cur_str);\
+    \}\
+\
+    __cur_str = __it.next();\
+    if (__cur_str.equals("null") || __cur_str.length() == 0) \{ this.sal = null; \} else \{\
+      this.sal = Integer.valueOf(__cur_str);\
+    \}\
+\
+    __cur_str = __it.next();\
+    if (__cur_str.equals("null")) \{ this.loc = null; \} else \{\
+      this.loc = __cur_str;\
+    \}\
+\
+    __cur_str = __it.next();\
+    if (__cur_str.equals("null")) \{ this.dept = null; \} else \{\
+      this.dept = __cur_str;\
+    \}\
+\
+    \} catch (RuntimeException e) \{    throw new RuntimeException("Can't parse input data: '" + __cur_str + "'", e);    \}  \}\
+\
+  private void __loadFromFields0(Iterator<String> __it) \{\
+    String __cur_str = null;\
+    try \{\
+    __cur_str = __it.next();\
+    if (__cur_str.equals("null")) \{ this.empname = null; \} else \{\
+      this.empname = __cur_str;\
+    \}\
+\
+    __cur_str = __it.next();\
+    if (__cur_str.equals("null") || __cur_str.length() == 0) \{ this.empno = null; \} else \{\
+      this.empno = Integer.valueOf(__cur_str);\
+    \}\
+\
+    __cur_str = __it.next();\
+    if (__cur_str.equals("null") || __cur_str.length() == 0) \{ this.sal = null; \} else \{\
+      this.sal = Integer.valueOf(__cur_str);\
+    \}\
+\
+    __cur_str = __it.next();\
+    if (__cur_str.equals("null")) \{ this.loc = null; \} else \{\
+      this.loc = __cur_str;\
+    \}\
+\
+    __cur_str = __it.next();\
+    if (__cur_str.equals("null")) \{ this.dept = null; \} else \{\
+      this.dept = __cur_str;\
+    \}\
+\
+    \} catch (RuntimeException e) \{    throw new RuntimeException("Can't parse input data: '" + __cur_str + "'", e);    \}  \}\
+\
+  public Object clone() throws CloneNotSupportedException \{\
+    empdtls o = (empdtls) super.clone();\
+    return o;\
+  \}\
+\
+  public void clone0(empdtls o) throws CloneNotSupportedException \{\
+  \}\
+\
+  public Map<String, Object> getFieldMap() \{\
+    Map<String, Object> __sqoop$field_map = new HashMap<String, Object>();\
+    __sqoop$field_map.put("empname", this.empname);\
+    __sqoop$field_map.put("empno", this.empno);\
+    __sqoop$field_map.put("sal", this.sal);\
+    __sqoop$field_map.put("loc", this.loc);\
+    __sqoop$field_map.put("dept", this.dept);\
+    return __sqoop$field_map;\
+  \}\
+\
+  public void getFieldMap0(Map<String, Object> __sqoop$field_map) \{\
+    __sqoop$field_map.put("empname", this.empname);\
+    __sqoop$field_map.put("empno", this.empno);\
+    __sqoop$field_map.put("sal", this.sal);\
+    __sqoop$field_map.put("loc", this.loc);\
+    __sqoop$field_map.put("dept", this.dept);\
+  \}\
+\
+  public void setField(String __fieldName, Object __fieldVal) \{\
+    if (!setters.containsKey(__fieldName)) \{\
+      throw new RuntimeException("No such field:"+__fieldName);\
+    \}\
+    setters.get(__fieldName).setField(__fieldVal);\
+  \}\
+\
+\}\
+}
